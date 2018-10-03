@@ -1,3 +1,9 @@
+/*
+Interest.java
+S Rodriguez
+10 03 2018
+*/
+
 public class Interest {
 
 	private int numberOfMonths;
