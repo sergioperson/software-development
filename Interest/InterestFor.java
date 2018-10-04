@@ -4,21 +4,19 @@ S Rodriguez
 10 03 2018
 */
 
-public class Interest {
+public class InterestFor {
 
 	private int numberOfMonths;
 	private double amountOfMoney;
 	private final double INTEREST_RATE;
 	private double interestValue;
-	private double totalAmount;
 
-	public Interest(){
+	public InterestFor(){
 
 	numberOfMonths=0;
 	amountOfMoney=0;
 	INTEREST_RATE=3.0;
 	interestValue=0;
-	totalAmount=0;
 
 	}
 
@@ -32,12 +30,14 @@ public class Interest {
 
 	public void calculate(){
 
-	totalAmount=amountOfMoney*Math.pow((1+(INTEREST_RATE/100)),numberOfMonths);
-
+		for (int i=0;i<numberOfMonths;i++){
+			interestValue=amountOfMoney*INTEREST_RATE/100;
+			amountOfMoney=amountOfMoney+interestValue;
+		}
 	}
 
 	public double getAmountToRepay(){
-		return totalAmount;
+		return amountOfMoney;
 	}
 
 }
