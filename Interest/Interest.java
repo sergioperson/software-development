@@ -9,7 +9,6 @@ public class Interest {
 	private int numberOfMonths;
 	private double amountOfMoney;
 	private final double INTEREST_RATE;
-	private double interestValue;
 	private double totalAmount;
 
 	public Interest(){
@@ -17,7 +16,6 @@ public class Interest {
 	numberOfMonths=0;
 	amountOfMoney=0;
 	INTEREST_RATE=3.0;
-	interestValue=0;
 	totalAmount=0;
 
 	}
