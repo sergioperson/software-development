@@ -4,7 +4,6 @@ S. Rodriguez
 October 20 2018
 */
 
-import javax.swing.JOptionPane;
 public class ServiceDay {
 
 	//declare variables
