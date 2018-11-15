@@ -48,21 +48,30 @@ public class LotteryPanel {
 				public void actionPerformed(ActionEvent e) {
 					String choice = e.getActionCommand();
 					games[count]=Integer.parseInt(choice);
+					
+					int x=Integer.parseInt(choice);
+					buttons[x-1].setEnabled (false);
+					
 					if((count == 5)) {						
 						gameOne = "  Game 1:  "+games[0]+"  "+games[1]+"  "+games[2]+"  "+games[3]+"  "+games[4]+"  "+games[5];	
-						gameOneLabel.setText(gameOne); 		
+						gameOneLabel.setText(gameOne); 
+						EnableButtons();
 					} 
 					if (count == 11) { 
 						gameTwo = "  Game 2: "+games[6]+"  "+games[7]+"  "+games[8]+"  "+games[9]+"  "+games[10]+"  "+games[11];
 						gameTwoLabel.setText(gameTwo); 
+						EnableButtons();
 					} 
 					if (count == 17){ 
 						gameThree = "  Game 3: "+games[12]+"  "+games[13]+"  "+games[14]+"  "+games[15]+"  "+games[16]+"  "+games[17];
 						gameThreeLabel.setText(gameThree); 
 						result.setText("The Lottery Numbers are 2 34 65 78 34.");
+						DisableButtons();
 						JOptionPane.showMessageDialog(null, "Congratulations, you got 100 euro!!!");
 					}
+
 					count++;
+
 				}
 			});
 			
@@ -101,6 +110,18 @@ public class LotteryPanel {
 		frame.setResizable(false);
 		frame.pack();
 		frame.setVisible(true);
+	}
+	
+	public void DisableButtons() {
+		for (int j=0;j<buttons.length;j++) {
+			buttons[j].setEnabled (false);
+		}
+	}
+	
+	public void EnableButtons() {
+		for (int j=0;j<buttons.length;j++) {
+			buttons[j].setEnabled (true);
+		}
 	}
 
 	public static void main(String[] args) {
