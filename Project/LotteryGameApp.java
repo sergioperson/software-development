@@ -12,8 +12,8 @@ public class LotteryGameApp {
 		myLotteryPanel = new LotteryPanel();
 		
 		LotteryNumbers myLotteryNumbers = new LotteryNumbers();
-		String[] lotteryNumbers;
-		lotteryNumbers = new String[40];
+		int[] lotteryNumbers;
+		lotteryNumbers = new int[6];
 		
 		//setter
 		myLotteryPanel.setLotteryNumbers(lotteryNumbers);
@@ -21,18 +21,13 @@ public class LotteryGameApp {
 		//process
 		myLotteryNumbers.generate();
 		
-		for(int i=0;i<40;i++) {
+		for(int i=0;i<6;i++) {
 			lotteryNumbers[i]=myLotteryNumbers.getLotteryNumbers()[i];
-
-			/*if(lotteryNumbers[i]!="") {
-				System.out.println(lotteryNumbers[i]);
-			}*/
+			System.out.println(lotteryNumbers[i]);
+			}
 		}
 		
 		//output
 		
-		
-
-	}
 	
 }

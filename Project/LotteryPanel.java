@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JButton;
 
 public class LotteryPanel {
@@ -35,11 +34,17 @@ public class LotteryPanel {
 	private int[] game3Array = new int[6];
 	private int count = 0;
 	private String game1, game2, game3, resultNumbers = "";
-	private String[] lotteryNumbers = new String[40];
+	private int[] lotteryNumbers = new int[6];
+	private LotteryResults myLotteryResults = new LotteryResults();
+	private int[][] guessedGame1 = new int[0][0];
+	private int[][] guessedGame2 = new int[0][0];
+	private int[][] guessedGame3 = new int[0][0];
 
 	//process
 	public LotteryPanel() {
-
+		
+	
+		
 		for (int i=0;i<40;i++) { //build an array with the button numbers
 			buttonNumbers[i]=i+1;		
 		}
@@ -74,33 +79,44 @@ public class LotteryPanel {
 						game3 = "  Game 3:  "+game3Array[0]+"  "+game3Array[1]+"  "+game3Array[2]+"  "+game3Array[3]+"  "+game3Array[4]+"  "+game3Array[5];
 					} 
 					
+					game1Label.setText(game1);
+					game2Label.setText(game2);
+					game3Label.setText(game3);
+					
 					switch (count) {
 					case 5:
 					case 11:
 						EnableButtons();
 						break;
 					case 17:
-						DisableButtons();
-						for(int i=0;i<40;i++) {
-							if(lotteryNumbers[i]!="") {
-								resultNumbers += lotteryNumbers[i]+" ";
-								result.setText("The Lottery Numbers are:  " + resultNumbers);
-							}
-						}
-						game1Label.setText(game1);
-						game2Label.setText(game2);
-						game3Label.setText(game3);
 						
+						for(int i=0;i<6;i++) {
+							resultNumbers += lotteryNumbers[i]+" ";
+							result.setText("The Lottery Numbers are:  " + resultNumbers);
+						}
+						
+						guessedGame1 = new int[][] { lotteryNumbers, game1Array };
+						guessedGame2 = new int[][] { lotteryNumbers, game2Array };
+						guessedGame3 = new int[][] { lotteryNumbers, game3Array };
+	
+						
+						myLotteryResults.setGuessedGame1(guessedGame1);
+						myLotteryResults.setGuessedGame2(guessedGame2);
+						myLotteryResults.setGuessedGame3(guessedGame3);
+						DisableButtons();
+
 						//RESULTADO
-						JOptionPane.showMessageDialog(null, "Congratulations, you got 100 euro!!!");
+
+						myLotteryResults.compute();
+
+						//JOptionPane.showMessageDialog(null, "Congratulations, you got 100 euro!!!");
 						break;
 					}
 					count++;
 				}
 			});
-			
+
 		}
-		
 
 		resultButton = new JButton("Play Again");
 		resultButton.setPreferredSize(new Dimension(180, 30));
@@ -135,7 +151,7 @@ public class LotteryPanel {
 				
 	}
 	
-	public void setLotteryNumbers(String[] lotteryNumbers){
+	public void setLotteryNumbers(int[] lotteryNumbers){
 		this.lotteryNumbers=lotteryNumbers;
 	}
 	
