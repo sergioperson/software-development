@@ -13,17 +13,26 @@
 public class LotteryResults {
 	
 	//declare variables
-	private int[][] guessedGame1 = new int[2][6];
-	private int[][] guessedGame2 = new int[2][6];
-	private int[][] guessedGame3 = new int[2][6];
+	private int[][] guessedGame1, guessedGame2, guessedGame3;
 	private int game1Guessed, game2Guessed, game3Guessed;
+	private final String prize1, prize2, prize3, lotteryWin;
+	private String game1FinalResult, game2FinalResult, game3FinalResult;
 	
 	//constructor
 	public LotteryResults() {
+		guessedGame1 = new int[2][6];
+		guessedGame2 = new int[2][6];
+		guessedGame3 = new int[2][6];
 		game1Guessed = 0;
 		game2Guessed = 0;
 		game3Guessed = 0;
-
+		prize1="€100";
+		prize2="€250";
+		prize3="€1,000";
+		lotteryWin="$$$ YOU WON THE LOTTERY $$$";
+		game1FinalResult = "";
+		game2FinalResult = "";
+		game3FinalResult = "";
 	}
 	
 	//set method
@@ -56,52 +65,58 @@ public class LotteryResults {
 			}
 		}
 		
-		//System.out.println(guessedGame1[1][1]);
-		//System.out.println(guessedGame1[1][2]);
-		//System.out.println(guessedGame1[0][1]);
-		//System.out.println(guessedGame1[0][0]);
-		
 		//3 numbers  €100
 		//4 numbers	€250
 		//5 numbers	€1,000
 		//6 numbers	Won the Lottery
 		
-		System.out.println("You guessed " + game1Guessed + " numbers on game One.");
-		System.out.println("You guessed " + game2Guessed + " numbers on game Two.");
-		System.out.println("You guessed " + game3Guessed + " numbers on game Three.");
-		
-		if(game1Guessed==3) {
-			System.out.println("You got €100 on game One.");
-		} else if (game1Guessed==4) {
-			System.out.println("You got €250 on game One.");
-		} else if (game1Guessed==5) {
-			System.out.println("You got €1,000 on game One.");
-		} else if (game1Guessed==6) {
-			System.out.println("YOU WON THE LOTTERY ON GAME ONE!!!");
+		switch (game1Guessed) {
+		case 3: game1FinalResult = "Game 1: You guessed " + game1Guessed + " number(s) and got " + prize1 + ".";
+		break;
+		case 4: game1FinalResult = "Game 1: You guessed " + game1Guessed + " number(s) and got " + prize2 + ".";
+		break;
+		case 5: game1FinalResult = "Game 1: You guessed " + game1Guessed + " number(s) and got " + prize3 + ".";
+		break;
+		case 6: game1FinalResult = "Game 1: You guessed " + game1Guessed + " number(s). " + lotteryWin + ".";
+		break;
+		default: game1FinalResult = "Game 1: You guessed " + game1Guessed + " number(s) better luck next time.";
 		}
 		
-		if(game2Guessed==3) {
-			System.out.println("You got €100 on game Two.");
-		} else if (game2Guessed==4) {
-			System.out.println("You got €250 on game Two.");
-		} else if (game2Guessed==5) {
-			System.out.println("You got €1,000 on game Two.");
-		} else if (game2Guessed==6) {
-			System.out.println("YOU WON THE LOTTERY ON GAME TWO!!!");
+		switch (game2Guessed) {
+		case 3: game2FinalResult = "Game 2: You guessed " + game2Guessed + " number(s) and got " + prize1 + ".";
+		break;
+		case 4: game2FinalResult = "Game 2: You guessed " + game2Guessed + " number(s) and got " + prize2 + ".";
+		break;
+		case 5: game2FinalResult = "Game 2: You guessed " + game2Guessed + " number(s) and got " + prize3 + ".";
+		break;
+		case 6: game2FinalResult = "Game 3: You guessed " + game2Guessed + " number(s). " + lotteryWin + ".";
+		break;
+		default: game2FinalResult = "Game 3: You guessed " + game2Guessed + " number(s) better luck next time.";
 		}
 		
-		if(game3Guessed==3) {
-			System.out.println("You got €100 on game Three.");
-		} else if (game3Guessed==4) {
-			System.out.println("You got €250 on game Three.");
-		} else if (game3Guessed==5) {
-			System.out.println("You got €1,000 on game Three.");
-		} else if (game3Guessed==6) {
-			System.out.println("YOU WON THE LOTTERY ON GAME THREE!!!");
+		switch (game3Guessed) {
+		case 3: game3FinalResult = "Game 4: You guessed " + game3Guessed + " number(s) and got " + prize1 + ".";
+		break;
+		case 4: game3FinalResult = "Game 4: You guessed " + game3Guessed + " number(s) and got " + prize2 + ".";
+		break;
+		case 5: game3FinalResult = "Game 4: You guessed " + game3Guessed + " number(s) and got " + prize3 + ".";
+		break;
+		case 6: game3FinalResult = "Game 4: You guessed " + game3Guessed + " number(s). " + lotteryWin + ".";
+		break;
+		default: game3FinalResult = "Game 4: You guessed " + game3Guessed + " number(s) better luck next time.";
 		}
 		
 	}
 	
 	//get method
+	public String getGame1FinalResult(){
+		return game1FinalResult;
+	}
+	public String getGame2FinalResult(){
+		return game2FinalResult;
+	}
+	public String getGame3FinalResult(){
+		return game3FinalResult;
+	}
 	
 }

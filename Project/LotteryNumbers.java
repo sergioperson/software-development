@@ -33,11 +33,9 @@ public class LotteryNumbers {
 		for(int i=0;i<40;i++) {
 			if(lotteryNumbersArray[i]!=0) {
 				lotteryNumbers[count]=lotteryNumbersArray[i];
-				count++;
-				
+				count++;			
 			}
 		}
-
 	}
 	
 	public int[] getLotteryNumbers() {
