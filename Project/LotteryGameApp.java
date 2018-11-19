@@ -12,17 +12,14 @@ public class LotteryGameApp {
 		int[] lotteryNumbers;
 		
 		//declare and create objects
-		LotteryGame myLotteryPanel;
-		myLotteryPanel = new LotteryGame();
-		LotteryNumbers myLotteryNumbers;
-		myLotteryNumbers = new LotteryNumbers();	
+		LotteryNumbers myLotteryNumbers = new LotteryNumbers();
+		LotteryGame myLotteryGame = new LotteryGame();
 		lotteryNumbers = new int[6];
 		
-		//setter
-		myLotteryPanel.setLotteryNumbers(lotteryNumbers);
-		
 		//process
-		myLotteryNumbers.generate();
+		myLotteryGame.setLotteryNumbers(lotteryNumbers);
+		myLotteryGame.compute();
+		myLotteryNumbers.compute();
 		
 		//TEST
 		for(int i=0;i<6;i++) {
@@ -30,8 +27,5 @@ public class LotteryGameApp {
 			System.out.println(lotteryNumbers[i]);
 			}
 		}
-		
-		//output
-		
-	
+
 }

@@ -4,7 +4,6 @@
  * Nov. 16 2018
  */
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,23 +16,17 @@ public class LotteryLayout {
 
 	//Declare data members
 	private JFrame frame;
-	private JPanel panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8;
+	private JPanel panel;
 	private final JLabel labelOne;
 	private JLabel game1Label, game2Label, game3Label, lotteryResultLabel, lotteryFinalResult1Label, lotteryFinalResult2Label, lotteryFinalResult3Label;
-	private JButton playAgainButton, exitButton;
+	private JButton exitButton;
 	private JButton[] buttons;
+	private JButton playAgainButton; 
 
+	
 	public LotteryLayout() {
-
-		frame = new JFrame();
-		panel1 = new JPanel();
-		panel2 = new JPanel();
-		panel3 = new JPanel();
-		panel4 = new JPanel();
-		panel5 = new JPanel();
-		panel6 = new JPanel();
-		panel7 = new JPanel();
-		panel8 = new JPanel();
+		frame = new JFrame("Lottery Game");
+		panel = new JPanel();
 		labelOne = new JLabel("Welcome to the Lottery Game - Choose Six numbers for Three games.");
 		game1Label = new JLabel(" ");
 		game2Label = new JLabel(" ");
@@ -42,73 +35,67 @@ public class LotteryLayout {
 		lotteryFinalResult1Label = new JLabel(" ");
 		lotteryFinalResult2Label = new JLabel(" ");
 		lotteryFinalResult3Label = new JLabel(" ");
-		playAgainButton = new JButton();
-		exitButton = new JButton();
+		exitButton = new JButton("Exit");
 		buttons = new JButton[40];
-
-		playAgainButton.setLayout(null);
-		playAgainButton.setLocation(600, 600);
-		exitButton.setLayout(null);
-		exitButton.setLocation(800, 600);
-		panel1.setPreferredSize(new Dimension(580, 360)); //Set the dimension for each panel
-		panel2.setPreferredSize(new Dimension(580, 360));
-		panel3.setPreferredSize(new Dimension(580, 360));
-		panel4.setPreferredSize(new Dimension(580, 360));
-		panel5.setPreferredSize(new Dimension(580, 360));
-		panel6.setPreferredSize(new Dimension(580, 360));
-		panel7.setPreferredSize(new Dimension(580, 360));
-
-		for(int i = 0; i < 40; i++) { //Create the buttons add the number and stores into the buttons array 
-			buttons[i] = new JButton(Integer.toString(i+1));
-			buttons[i].setPreferredSize(new Dimension(50, 30));
-			panel2.add(buttons[i]);
-		}
-
 		playAgainButton = new JButton("Play Again");
 
-		playAgainButton.setPreferredSize(new Dimension(180, 30));
+	}
+
+	//compute
+	public void compute() {
+		
 		playAgainButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+
 				frame.dispose(); //destroy the previous frame
 				LotteryGameApp.main(null);
 			}
 		});
-		exitButton = new JButton("Exit");
-		exitButton.setPreferredSize(new Dimension(180, 30));
+		
+		panel.setBounds(7,60,560,140);
+		for(int i = 0; i < 40; i++) { //Create the buttons add the number and stores into the buttons array 
+			buttons[i] = new JButton(Integer.toString(i+1));
+			buttons[i].setPreferredSize(new Dimension(50, 30));
+			panel.add(buttons[i]);
+		}
 
-		panel1.add(labelOne);
-		frame.add(panel1);
-		panel1.add(panel2);
-		panel3.add(game1Label);
-		panel3.add(game2Label);
-		panel3.add(game3Label);
-		panel2.add(panel3);
-		
-		panel4.add(lotteryResultLabel);
-		panel3.add(panel4);
-		panel5.add(lotteryFinalResult1Label);
-		panel4.add(panel5);
-		panel6.add(lotteryFinalResult2Label);
-		panel5.add(panel6);
-		panel7.add(lotteryFinalResult3Label);
-		panel6.add(panel7);
-		
-		panel8.add(playAgainButton,BorderLayout.SOUTH);
-		panel8.add(exitButton,BorderLayout.SOUTH);
+		labelOne.setBounds(92,22,400,20);
+		frame.add(labelOne);
+		panel.setPreferredSize(new Dimension(580,186));
+		frame.add(panel);
+		game1Label.setBounds(13,215,186,20);
+		frame.add(game1Label);
+		game2Label.setBounds(202,215,186,20);
+		frame.add(game2Label);
+		game3Label.setBounds(394,215,186,20);
+		frame.add(game3Label);		
+		lotteryResultLabel.setBounds(140,265,500,20);
+		frame.add(lotteryResultLabel);
+		lotteryFinalResult1Label.setBounds(13,315,500,20);
+		frame.add(lotteryFinalResult1Label);
+		lotteryFinalResult2Label.setBounds(13,335,500,20);
+		frame.add(lotteryFinalResult2Label);
+		lotteryFinalResult3Label.setBounds(13,355,500,20);
+		frame.add(lotteryFinalResult3Label);	
+
+		playAgainButton.setPreferredSize(new Dimension(180,30));
+
+		playAgainButton.setBounds(95,410,186,40);
+		frame.add(playAgainButton);
+		exitButton.setPreferredSize(new Dimension(180,30));
+		exitButton.setBounds(295,410,188,40);
+		frame.add(exitButton);
 		exitButton.addActionListener(e -> System.exit(0));
-		panel7.add(panel8);
-		
-		frame.setLocation(435, 270);
+		frame.setSize(580,510);
+		frame.setLocation(435, 140);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // EDIT
 		frame.setResizable(false);
-		frame.pack();
+		frame.setLayout(null);
 		frame.setVisible(true);
-			
 	}
 	
 	//setters
-
 	public void setGame1Label(String game1) {
 		this.game1Label.setText(game1);
 	}
@@ -131,13 +118,14 @@ public class LotteryLayout {
 		this.lotteryFinalResult3Label.setText(finalResult3);
 	}
 	
-	
 	//getters
 	public JButton[] getButtons() {
 		return buttons;
 	}
+	public JButton getPlayAgainButton() {
+		return playAgainButton;
+	}
 	
-
 	//other 	
 	public void DisableButtons() {
 		for (int j=0;j<buttons.length;j++) {

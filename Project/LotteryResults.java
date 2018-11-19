@@ -1,13 +1,7 @@
-
-//3 numbers  €100
-//4 numbers	€250
-//5 numbers	€1,000
-//6 numbers	Won the Lottery
-
-/*At the end of a game, the game should display the amount of numbers guessed correctly on each line played. Once a game has finished, 
- * the application asks the player if he/she would like to play another game. At the end of all the games, display a history of all 
- * games played. The history shows for each game the number of lines played and the number of lines won and the total winnings. All 
- * the history elements of the game should be coded using arrays.
+/*
+ * LotteryGameApp.java
+ * S. Rodriguez
+ * Nov. 16 2018
  */
 
 public class LotteryResults {
@@ -65,45 +59,40 @@ public class LotteryResults {
 			}
 		}
 		
-		//3 numbers  €100
-		//4 numbers	€250
-		//5 numbers	€1,000
-		//6 numbers	Won the Lottery
-		
 		switch (game1Guessed) {
-		case 3: game1FinalResult = "Game 1: You guessed " + game1Guessed + " number(s) and got " + prize1 + ".";
+		case 3: game1FinalResult = "You guessed " + game1Guessed + " number(s) on game one and got " + prize1 + ".";
 		break;
-		case 4: game1FinalResult = "Game 1: You guessed " + game1Guessed + " number(s) and got " + prize2 + ".";
+		case 4: game1FinalResult = "You guessed " + game1Guessed + " number(s) on game one and got " + prize2 + ".";
 		break;
-		case 5: game1FinalResult = "Game 1: You guessed " + game1Guessed + " number(s) and got " + prize3 + ".";
+		case 5: game1FinalResult = "You guessed " + game1Guessed + " number(s) on game one and got " + prize3 + ".";
 		break;
-		case 6: game1FinalResult = "Game 1: You guessed " + game1Guessed + " number(s). " + lotteryWin + ".";
+		case 6: game1FinalResult = "You guessed " + game1Guessed + " number(s) on game one. " + lotteryWin + ".";
 		break;
-		default: game1FinalResult = "Game 1: You guessed " + game1Guessed + " number(s) better luck next time.";
+		default: game1FinalResult = "You guessed " + game1Guessed + " number(s) on game one, better luck next time.";
 		}
 		
 		switch (game2Guessed) {
-		case 3: game2FinalResult = "Game 2: You guessed " + game2Guessed + " number(s) and got " + prize1 + ".";
+		case 3: game2FinalResult = "You guessed " + game2Guessed + " number(s) on game two and got " + prize1 + ".";
 		break;
-		case 4: game2FinalResult = "Game 2: You guessed " + game2Guessed + " number(s) and got " + prize2 + ".";
+		case 4: game2FinalResult = "You guessed " + game2Guessed + " number(s) on game two and got " + prize2 + ".";
 		break;
-		case 5: game2FinalResult = "Game 2: You guessed " + game2Guessed + " number(s) and got " + prize3 + ".";
+		case 5: game2FinalResult = "You guessed " + game2Guessed + " number(s) on game two and got " + prize3 + ".";
 		break;
-		case 6: game2FinalResult = "Game 3: You guessed " + game2Guessed + " number(s). " + lotteryWin + ".";
+		case 6: game2FinalResult = "You guessed " + game2Guessed + " number(s) on game two. " + lotteryWin + ".";
 		break;
-		default: game2FinalResult = "Game 3: You guessed " + game2Guessed + " number(s) better luck next time.";
+		default: game2FinalResult = "You guessed " + game2Guessed + " number(s) on game two, better luck next time.";
 		}
 		
 		switch (game3Guessed) {
-		case 3: game3FinalResult = "Game 4: You guessed " + game3Guessed + " number(s) and got " + prize1 + ".";
+		case 3: game3FinalResult = "You guessed " + game3Guessed + " number(s) on game three and got " + prize1 + ".";
 		break;
-		case 4: game3FinalResult = "Game 4: You guessed " + game3Guessed + " number(s) and got " + prize2 + ".";
+		case 4: game3FinalResult = "You guessed " + game3Guessed + " number(s) on game three and got " + prize2 + ".";
 		break;
-		case 5: game3FinalResult = "Game 4: You guessed " + game3Guessed + " number(s) and got " + prize3 + ".";
+		case 5: game3FinalResult = "You guessed " + game3Guessed + " number(s) on game three and got " + prize3 + ".";
 		break;
-		case 6: game3FinalResult = "Game 4: You guessed " + game3Guessed + " number(s). " + lotteryWin + ".";
+		case 6: game3FinalResult = "Game 3: You guessed " + game3Guessed + " number(s) on game three. " + lotteryWin + ".";
 		break;
-		default: game3FinalResult = "Game 4: You guessed " + game3Guessed + " number(s) better luck next time.";
+		default: game3FinalResult = "You guessed " + game3Guessed + " number(s) on game three, better luck next time.";
 		}
 		
 	}

@@ -18,7 +18,7 @@ public class LotteryNumbers {
 		count=0;
 	}
 
-	public void generate() {
+	public void compute() {
 
 		do {
 			randomNumber=(int)(Math.random() * ((40 - 1) + 1)) + 1;
